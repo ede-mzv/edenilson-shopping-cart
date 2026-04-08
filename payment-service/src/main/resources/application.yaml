@@ -22,3 +22,6 @@ spring:
 service:
   order:
     url: http://localhost:8082
+
+jwt:
+  secret: dGhpc0lzQVZlcnlTZWN1cmVTZWNyZXRLZXlGb3JKV1RUb2tlbjIwMjQ=
