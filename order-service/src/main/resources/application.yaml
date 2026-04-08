@@ -22,3 +22,7 @@ spring:
 service:
   product:
     url: http://localhost:8081
+
+jwt:
+  secret: dGhpc0lzQVZlcnlTZWN1cmVTZWNyZXRLZXlGb3JKV1RUb2tlbjIwMjQ=
+  expiration: 86400000
