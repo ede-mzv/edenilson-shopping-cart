@@ -50,6 +50,7 @@ public class AuthServiceImpl implements AuthService {
 
         return AuthResponse.builder()
                 .token(token)
+                .customerId(customer.getId())
                 .email(customer.getEmail())
                 .firstName(customer.getFirstName())
                 .lastName(customer.getLastName())
@@ -72,6 +73,7 @@ public class AuthServiceImpl implements AuthService {
 
         return AuthResponse.builder()
                 .token(token)
+                .customerId(customer.getId())
                 .email(customer.getEmail())
                 .firstName(customer.getFirstName())
                 .lastName(customer.getLastName())

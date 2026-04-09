@@ -179,7 +179,11 @@ public class OrderServiceImpl implements OrderService {
         try {
             ResponseEntity<ProductResponse> response = restTemplate.getForEntity(
                     productServiceUrl + "/api/products/{id}", ProductResponse.class, productId);
-            return response.getBody();
+            ProductResponse body = response.getBody();
+            if (body == null || body.getId() == null) {
+                throw new BadRequestException("Product with id " + productId + " not found");
+            }
+            return body;
         } catch (HttpClientErrorException.NotFound e) {
             throw new BadRequestException("Product with id " + productId + " not found");
         } catch (RestClientException e) {

@@ -59,7 +59,11 @@ public class ProductServiceImpl implements ProductService {
         try {
             ResponseEntity<ProductResponse> response = restTemplate.getForEntity(
                     baseUrl + "/products/{id}", ProductResponse.class, id);
-            return response.getBody();
+            ProductResponse body = response.getBody();
+            if (body == null || body.getId() == null) {
+                throw new ProductNotFoundException("Product with id " + id + " not found");
+            }
+            return body;
         } catch (HttpClientErrorException.NotFound e) {
             throw new ProductNotFoundException("Product with id " + id + " not found");
         } catch (RestClientException e) {

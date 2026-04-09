@@ -88,8 +88,10 @@
                   "if (pm.response.code === 201) {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set('jwt_token', jsonData.token);",
-                  "    pm.test('Token saved', function () {",
+                  "    pm.environment.set('customer_id', jsonData.customerId);",
+                  "    pm.test('Token and Customer ID saved', function () {",
                   "        pm.expect(jsonData.token).to.not.be.empty;",
+                  "        pm.expect(jsonData.customerId).to.not.be.undefined;",
                   "    });",
                   "}"
                 ],
@@ -123,8 +125,10 @@
                   "if (pm.response.code === 200) {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set('jwt_token', jsonData.token);",
-                  "    pm.test('Token saved', function () {",
+                  "    pm.environment.set('customer_id', jsonData.customerId);",
+                  "    pm.test('Token and Customer ID saved', function () {",
                   "        pm.expect(jsonData.token).to.not.be.empty;",
+                  "        pm.expect(jsonData.customerId).to.not.be.undefined;",
                   "    });",
                   "}"
                 ],
